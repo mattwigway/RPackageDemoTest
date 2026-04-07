@@ -1,0 +1,13 @@
+^renv$
+^renv\.lock$
+^OdumDemo\.Rproj$
+^\.Rproj\.user$
+^docs$
+^\.quarto$
+^_quarto\.yml$
+^slides$
+^air-analysis\.R$
+^airline-analysis\.R$
+^answers$
+^data$
+^index\.qmd$
