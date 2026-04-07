@@ -10,13 +10,13 @@ data = load_data("data/air_sample.csv", "data/L_CITY_MARKET_ID.csv", "data/L_CAR
 
 # Now, we can compute the market shares
 market_shares = function (dataframe, carrier, city) {
-  mkt_shares = group_by(data, {{ carrier }}, {{ city }}) %>%
-    summarize(Passengers=sum(Passengers)) %>%
-    group_by({{ city }}) %>%
-    mutate(market_share=Passengers/sum(Passengers), total_passengers=sum(Passengers)) %>%
+  mkt_shares = group_by(data, {{ carrier }}, {{ city }}) |>
+    summarize(Passengers=sum(Passengers)) |>
+    group_by({{ city }}) |>
+    mutate(market_share=Passengers/sum(Passengers), total_passengers=sum(Passengers)) |>
     ungroup()
   
-  res = filter(mkt_shares, total_passengers > 1000) %>% arrange(-market_share)
+  res = filter(mkt_shares, total_passengers > 1000) |> arrange(-market_share)
   return(res)
 }
 
